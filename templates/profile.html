@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Profile</title>
+    <!-- You can include CSS links here as needed -->
+</head>
+<body>
+    <div class="container">
+        <h2>Update Your Profile</h2>
+        <form method="POST" action="{{ url_for('profile') }}">
+            {{ form.hidden_tag() }}
+
+            {% if current_user.role == 'admin' %}
+                <!-- Admin Fields -->
+                <div class="form-group">
+                    <label for="hospital_name">Hospital Name</label>
+                    {{ form.hospital_name(class="form-control") }}
+                </div>
+                <div class="form-group">
+                    <label for="facility_address">Facility Address</label>
+                    {{ form.facility_address(class="form-control") }}
+                </div>
+                <div class="form-group">
+                    <label for="country">Country</label>
+                    {{ form.country(class="form-control") }}
+                </div>
+                <div class="form-group">
+                    <label for="contact_number">Contact Number</label>
+                    {{ form.contact_number(class="form-control") }}
+                </div>
+
+            {% elif current_user.role == 'doctor' %}
+                <!-- Doctor Fields -->
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    {{ form.name(class="form-control") }}
+                </div>
+                <div class="form-group">
+                    <label for="gender">Gender</label>
+                    {{ form.gender(class="form-control") }}
+                </div>
+                <div class="form-group">
+                    <label for="hospital_name">Hospital Name</label>
+                    {{ form.hospital_name(class="form-control") }}
+                </div>
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    {{ form.title(class="form-control") }}
+                </div>
+                <div class="form-group">
+                    <label for="country">Country</label>
+                    {{ form.country(class="form-control") }}
+                </div>
+
+            {% elif current_user.role == 'super_admin' %}
+                <!-- Super Admin has no profile form, only a view. -->
+                <p>You do not have a personal profile to update as a super admin.</p>
+
+            {% endif %}
+
+            <div class="form-group">
+                {{ form.submit(class="btn btn-primary") }}
+            </div>
+        </form>
+    </div>
+</body>
+</html>

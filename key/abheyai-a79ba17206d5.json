@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "abheyai",
+  "private_key_id": "a79ba17206d5cd19730b37f2ae68c0d3b09173ee",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQD62TARkKgrxPS/\ncTL7Cm5U6LuYZJO6eBou+KdOWS1QE0NPKaa2Z+Bky5b+0bkrNiuCgEfna00eUIUM\nGgiD5fVSn7rNdKr4DBP1cc4u404+SAwg8XCfomNSsuD6w9H2C9wbjWTzld+rvqWc\nwVEX6v2UdgHyNkalurshUSRxjYWWg+J6mtt8c+Ol7y+SC/DLCK+2NGMM2jGxD3U9\nxTFqiL7hkscjVbPuFvbleBZty6IPVNjNzMh4zw9jjlqwHztOpDwAr5Rh7/ik/SrA\nvbqIaWP0MSvEfCVP9zxAiSOF6xhX/uuqA/6c8aIoPn2MD/Wmkn/jue5dpBiaX7+v\n4U/DtWD7AgMBAAECggEAKYtq4J3anFUkS8iNrvINT9azqwuNQ+a8P2dDHkC6tnZa\nQXQefjs5+LeXLGDDkBqKnjRstDEbNpgTUOvG2UFund6Ca6CU6Dvn2lCc2zseLEZ2\na8ZQ5r9YP8wMYrunvF4+d/m07Hq37pPGje2eZp2unbXloJ3ImY4Ri/UKWhwcMc8V\n9JTsTWPYV7Mkku7nkbgRBGBNJFhjqQMZOCLAJ1pc+zZtb50axyi5Yjb8/w3LcNAZ\ngqdBeuuRudL9NqQWrQdE4MiSJ5CtnxUs0I2QkyR1TV08lZh2NkdV0zW0PHN4LHmp\nQpjfP13Ftwj16A1stxYEqOtHaDEyVSi9/oTQC7vTsQKBgQD+jFJhiU1w3oY3GzcY\npGUVfaQWN5qQTaCAjQ+/cwzROSF2ghO2Be9xtoUr47SAG0HmHAJ3SZXg1YM+3scT\nAdm5/O50C8HU8Kb0t/hToEbw1QhfC+AbotsRYbnElatByhykHeTbFTz20U2wdASR\nxWcVdqnkDddOPef0wY5jHrfFpwKBgQD8R3a7FhnQDD7XBIwL+k5wvykBfBr6XjoG\nHVh2lkxrMQSp4KTCgvuvYTmZBqbaSRaGgyqveesZAwMQpZXrzLi59XlzWvja1H0t\nXHHJkq66NqNaQ2kk7ITu2vP9MgNxm8GYiOktnoNBU3suJiogvg6BbHNsTKwiqG+a\n1VnkeI7cjQKBgQDY+VVTbI0FM7jmCh25tI+xdOpEQdtPO8wfJ56Py4rWYMNkV9Zj\nZsXGgRUc5zi5pgJTGfcEJUZLYtQ/5/d6/S3Q+odrhYYQc51spdBXwBwYNw6urdm2\n1Oe09j86EXXsW1J0lkK4eG8B2EFHsm0esEyBICgKi73GJMCugbpURR/SqwKBgC+s\nzapDXfNsLP/zUwf8cJBr/7LRIkQIRIzdRNd8RcrIA6qa0mgT2r5k8D6T/DoqL8CR\nzyJENwKOCClAMZnTIWG7Gw2KtpacK1/EJZjDSJPWOX6YWKlqrSB6bjt+FRqGJcrO\nrMo7N3DD9vZcrf9sC0+4EAP6ZVlTXWv0P72mbtENAoGADpOy1oW/gaHs7wyvyozf\nUf8iIqKLZ44YNHuDTxp1xLOPjFGWzN05rJdz1/gmfXj84nv38mAdmD/PHxPJTiAm\nhUYnlKO7igv/22L+/6/KhQMLAo02zP0OCqbsPG2sH1ZJY5nDqNFDroaCR9TTxC0g\nwDIxK5wHccGcHTitKokR3Uc=\n-----END PRIVATE KEY-----\n",
+  "client_email": "flask-app@abheyai.iam.gserviceaccount.com",
+  "client_id": "103457664471437586460",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/flask-app%40abheyai.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

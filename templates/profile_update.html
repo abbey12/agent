@@ -1,0 +1,48 @@
+<form method="POST">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" name="name" value="{{ profile.name }}">
+    </div>
+
+    {% if current_user.role == 'doctor' %}
+    <!-- Only for doctors -->
+    <div class="form-group">
+        <label for="gender">Gender</label>
+        <input type="text" class="form-control" id="gender" name="gender" value="{{ profile.gender }}">
+    </div>
+    <div class="form-group">
+        <label for="hospital_name">Hospital Name</label>
+        <input type="text" class="form-control" id="hospital_name" name="hospital_name" value="{{ profile.hospital_name }}">
+    </div>
+    <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" class="form-control" id="title" name="title" value="{{ profile.title }}">
+    </div>
+    <div class="form-group">
+        <label for="country">Country</label>
+        <input type="text" class="form-control" id="country" name="country" value="{{ profile.country }}">
+    </div>
+    {% endif %}
+
+    {% if current_user.role == 'admin' %}
+    <!-- Only for admins -->
+    <div class="form-group">
+        <label for="hospital_name">Hospital Name</label>
+        <input type="text" class="form-control" id="hospital_name" name="hospital_name" value="{{ profile.hospital_name }}">
+    </div>
+    <div class="form-group">
+        <label for="facility_address">Facility Address</label>
+        <input type="text" class="form-control" id="facility_address" name="facility_address" value="{{ profile.facility_address }}">
+    </div>
+    <div class="form-group">
+        <label for="contact_number">Contact Number</label>
+        <input type="text" class="form-control" id="contact_number" name="contact_number" value="{{ profile.contact_number }}">
+    </div>
+    <div class="form-group">
+        <label for="country">Country</label>
+        <input type="text" class="form-control" id="country" name="country" value="{{ profile.country }}">
+    </div>
+    {% endif %}
+
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+</form>

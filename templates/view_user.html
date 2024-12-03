@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/style.css">
+    <title>View User</title>
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Super Admin Logo" class="sidebar-logo">
+            <ul>
+                <li><a href="{{ url_for('super_admin_dashboard') }}">Dashboard</a></li>
+                <li><a href="{{ url_for('logout') }}">Logout</a></li>
+            </ul>
+        </nav>
+
+        <div class="main-content">
+            <h1>View User - {{ user.username }}</h1>
+            <p>Email: {{ user.email }}</p>
+            <p>Role: {{ user.role }}</p>
+            <p>Active: {{ 'Yes' if user.active else 'No' }}</p>
+            <p>Interaction Count: {{ user.interaction_count }}</p>
+            <a href="{{ url_for('super_admin_dashboard') }}">Back to Dashboard</a>
+        </div>
+    </div>
+</body>
+</html>

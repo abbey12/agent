@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Interactions</title>
+</head>
+<body>
+    <h1>User Interactions</h1>
+    <p>List of all user interactions will appear here.</p>
+
+    {% if interactions %}
+        <table>
+            <thead>
+                <tr>
+                    <th>User</th>
+                    <th>Interaction</th>
+                    <th>Timestamp</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for interaction in interactions %}
+                    <tr>
+                        <td>{{ interaction.user.username }}</td>
+                        <td>{{ interaction.message }}</td>
+                        <td>{{ interaction.timestamp }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No interactions to display.</p>
+    {% endif %}
+</body>
+</html>

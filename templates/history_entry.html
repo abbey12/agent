@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History Entry</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        /* Sidebar */
+        .sidebar {
+            width: 20%;
+            background-color: #333;
+            color: white;
+            height: 100vh;
+            padding: 20px;
+            position: fixed;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 15px;
+        }
+
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1em;
+            display: block;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .sidebar ul li a:hover,
+        .sidebar ul li a.active {
+            background-color: #555;
+        }
+
+        /* Main Content */
+        .chatbox-wrapper {
+            margin-left: 22%;
+            padding: 20px;
+        }
+
+        .chatbox-wrapper h2 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        /* History Entry Card */
+        .history-entry-card {
+            background: #f9f9f9;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .history-item {
+            margin-bottom: 15px;
+        }
+
+        .history-item p {
+            margin: 5px 0;
+            font-size: 1em;
+            color: #555;
+            text-align: justify; /* Align text properly */
+            word-wrap: break-word; /* Wrap long words */
+            line-height: 1.5; /* Improve readability */
+        }
+
+        /* Scrollable Content */
+        .history-entry-card {
+            max-height: 70vh;
+            overflow-y: auto;
+            padding-right: 15px; /* Extra padding for scrollbar visibility */
+        }
+
+        /* Scrollbar Styling */
+        .history-entry-card::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .history-entry-card::-webkit-scrollbar-thumb {
+            background-color: #888;
+            border-radius: 10px;
+        }
+
+        .history-entry-card::-webkit-scrollbar-thumb:hover {
+            background-color: #555;
+        }
+
+        /* Back Button */
+        .btn-primary {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <ul>
+                <li><a href="/profile">Profile</a></li>
+                <li><a href="/history" class="active">Message History</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="chatbox-wrapper">
+            <h2>Message History Entry</h2>
+
+            <!-- History Entry Card -->
+            <div class="history-entry-card">
+                <div class="history-item">
+                    <p><strong>Question:</strong></p>
+                    <p>{{ history_entry.question }}</p>
+                </div>
+                <div class="history-item">
+                    <p><strong>Response:</strong></p>
+                    <p>{{ history_entry.response }}</p>
+                </div>
+                <div class="history-item">
+                    <p><strong>Timestamp:</strong></p>
+                    <p>{{ history_entry.timestamp }}</p>
+                </div>
+            </div>
+
+            <!-- Back Button -->
+            <a href="/history" class="btn btn-primary">Back to History</a>
+        </div>
+    </div>
+</body>
+</html>

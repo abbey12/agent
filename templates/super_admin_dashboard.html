@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Admin Dashboard</title>
+
+    <!-- Add necessary stylesheets for SB Admin -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css" rel="stylesheet">
+
+    <style>
+        .navbar-brand {
+            font-weight: bold;
+        }
+
+        .panel-heading {
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .panel-footer {
+            cursor: pointer;
+        }
+
+        .panel-body {
+            font-size: 16px;
+        }
+
+        .fa {
+            font-size: 24px;
+        }
+
+        /* Custom styling */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background: #343a40;
+            color: white;
+            padding-top: 50px;
+        }
+
+        .sidebar .nav-item a {
+            color: #ddd;
+        }
+
+        .sidebar .nav-item a:hover {
+            background: #495057;
+            color: white;
+        }
+
+        .sidebar .nav-item.active a {
+            background: #007bff;
+            color: white;
+        }
+
+        .container {
+            margin-left: 220px;
+        }
+
+        .content-header {
+            font-size: 24px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Sidebar Menu -->
+    <div class="sidebar">
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link active" href="{{ url_for('super_admin_dashboard') }}">
+                    <i class="fa fa-dashboard"></i> Dashboard
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('user_interactions') }}">
+                    <i class="fa fa-comment"></i> User Interactions
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('logout') }}">
+                    <i class="fa fa-sign-out"></i> Logout
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="content-header">Super Admin Dashboard</h1>
+                <br><br>
+
+                <!-- Users Table for Super Admin -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <i class="fa fa-users"></i> All Users and Their Roles
+                            </div>
+                            <div class="panel-body">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Username</th>
+                                            <th>Email</th>
+                                            <th>Role</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for user in users %}
+                                        <tr>
+                                            <td>{{ user.username }}</td>
+                                            <td>{{ user.email }}</td>
+                                            <td>{{ user.role }}</td>
+                                            <td><a href="{{ url_for('view_user_profile', user_id=user.id) }}" class="btn btn-info">View Profile</a></td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.8/raphael-min.js"></script>
+</body>
+
+</html>

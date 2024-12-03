@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saved Chat</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('view_profile') }}">Profile</a></li>
+                <li><a href="{{ url_for('history') }}">History</a></li>
+                <li><a href="{{ url_for('logout') }}">Logout</a></li>
+            </ul>
+        </div>
+
+        <!-- Chatbox Section -->
+        <div class="chatbox-wrapper">
+            <h2>{{ chat.title }}</h2>
+
+            <!-- Message Box -->
+            <div class="message-box" id="message-box">
+                {% if chat.messages %}
+                    {% for message in chat.messages %}
+                        <div class="{{ 'user-message' if message['role'] == 'user' else 'assistant-message' }}">
+                            <p>
+                                <strong>{{ 'User' if message['role'] == 'user' else 'Assistant' }}:</strong> 
+                                {{ message['text'] }}
+                            </p>
+                            <p class="timestamp">
+                                <small>{{ message['timestamp'] if message['timestamp'] else 'Unknown time' }}</small>
+                            </p>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p>No messages available for this chat.</p>
+                {% endif %}
+            </div>
+
+            <!-- Pagination or Lazy Loading -->
+            <div id="load-more-messages" style="text-align: center;">
+                <button onclick="loadMoreMessages()">Load More Messages</button>
+            </div>
+
+            <!-- Follow-Up Form -->
+            <form action="{{ url_for('follow_up', chat_id=chat.id) }}" method="POST">
+                <label for="question">Follow-up Question:</label>
+                <textarea id="question" name="question" placeholder="Ask a follow-up question here" required></textarea>
+                <!-- Pass the chat context as a hidden input -->
+                <input type="hidden" name="context" value="{{ chat.messages | tojson }}">
+                <button type="submit">Ask Follow-up</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript for Lazy Loading -->
+    <script>
+        function loadMoreMessages() {
+            // Placeholder function for lazy loading additional messages
+            alert("Load more functionality is not yet implemented!");
+        }
+    </script>
+</body>
+</html>

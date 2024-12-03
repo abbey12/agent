@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Profile</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('view_profile') }}" class="active">Profile</a></li>
+                <li><a href="{{ url_for('history') }}">History</a></li>
+                <li><a href="{{ url_for('logout') }}">Logout</a></li>
+            </ul>
+        </div>
+
+        <div class="chatbox-wrapper">
+            <h2>Your Profile</h2>
+            <div class="profile-info">
+                <p><strong>Name:</strong> {{ profile.name or 'Not provided' }}</p>
+                <p><strong>Facility Name:</strong> {{ profile.facility_name or 'Not provided' }}</p>
+                <p><strong>Clinical Position:</strong> {{ profile.clinical_position or 'Not provided' }}</p>
+                <p><strong>Years of Experience:</strong> {{ profile.years_of_experience or 'Not provided' }}</p>
+                <p><strong>Gender:</strong> {{ profile.gender or 'Not provided' }}</p>
+                <p><strong>Country:</strong> {{ profile.country or 'Not provided' }}</p><br>
+                <p><strong>Number of Interactions:</strong> {{ history_count or 0 }}</p><br> <!-- Display history count -->
+            </div>
+
+            <a href="{{ url_for('profile_update') }}" class="btn">Update Profile</a>
+        </div>
+    </div>
+</body>
+</html>

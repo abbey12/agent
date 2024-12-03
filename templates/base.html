@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Clinical Assistant{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="dark-theme">
+    <!-- Top Navbar -->
+    <header class="top-navbar">
+        <h1 class="top-navbar-title">Clinical Assistant</h1>
+        <nav class="top-navbar-nav">
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                {% if current_user.is_authenticated %}
+                    <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                {% else %}
+                    <li><a href="{{ url_for('login') }}">Login</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="{{ url_for('home') }}">Dashboard</a></li>
+                {% if current_user.is_authenticated %}
+                    <li><a href="{{ url_for('history') }}">History</a></li>
+                    <li><a href="{{ url_for('followup', history_id=1) }}">Follow Up</a></li> <!-- Adjust history_id as needed -->
+                {% endif %}
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="content">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 Clinical Assistant - Your AI healthcare companion</p>
+    </footer>
+</body>
+</html>
